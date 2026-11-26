@@ -9,7 +9,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='rg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23a99cff'/><stop offset='1' stop-color='%236a55f0'/></linearGradient></defs><rect width='64' height='64' rx='15' fill='%230d0e15'/><rect x='2' y='2' width='60' height='60' rx='13' fill='none' stroke='url(%23rg)' stroke-width='2.5'/><path d='M20 15h15.5c7.5 0 12.5 4.3 12.5 11 0 4.8-2.6 8.3-6.8 9.9L49 49h-9.6l-6.6-12.2H28.6V49H20V15zm8.6 7.3v7.5h6.3c2.6 0 4.2-1.4 4.2-3.8s-1.6-3.7-4.2-3.7h-6.3z' fill='url(%23rg)'/></svg>">
 <link rel="preload" href="site-v1/fonts/InterTight-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site-v1/scrollcraft.css">
-<link rel="stylesheet" href="site.css?v=1126j">
+<link rel="stylesheet" href="site.css?v=1126k">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"></head>
 <body>
 
@@ -52,12 +52,45 @@
       <div class="hero__copy" data-sc-cue="0 0.30 0">
         <h1 class="hero__h1" style="font-weight:800 !important"><span class="hl">You have the idea.</span><span class="hl">Reelhaus has the production crew.</span><span class="hl">It costs less than you think.</span></h1>
         <p class="hero__sub">Reelhaus helps you find the angle, write the script and plan every shot. You render on your own keys and only pay for what you use.</p>
+        <div class="hero__acts">
+          <a class="act act--go" href="#plans">
+            <span class="act__tile" aria-hidden="true"><svg viewBox="0 0 16 16"><path fill="currentColor" d="M8 1.2 9.6 6.4 14.8 8 9.6 9.6 8 14.8 6.4 9.6 1.2 8 6.4 6.4Z"/></svg></span>
+            Get started
+          </a>
+          <button class="act act--watch" type="button" id="watchDemo">
+            <span class="act__play" aria-hidden="true"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path fill="currentColor" d="M6.6 5.2v5.6L11.2 8z"/></svg></span>
+            Watch demo
+          </button>
+        </div>
         <a class="chat" href="#plans" aria-label="Plan my video: see plans">
           <span class="chat__field"><span class="chat__text" data-typer>A 30-second ad for my aunt's taco truck</span><span class="chat__caret" aria-hidden="true"></span></span>
           <span class="chat__go">Plan my video <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </a>
         <p class="hero__alt"><a href="https://reelhaus.ai/front/skills/store">Or try a free skill pack first</a></p>
       </div>
+    </div>
+  </section>
+
+
+  <!-- 1b ASSEMBLE: stills at the sides lock into one storyboard row (Nov 26, add-only). -->
+  <section class="assemble" id="board" aria-label="Put the story on the board">
+    <div class="assemble__stage">
+      <div class="assemble__shots" aria-hidden="true">
+        <figure class="assemble__shot" data-i="0"><img src="site-v1/images/board-1.webp" width="640" height="363" alt=""><figcaption><span class="mono">01</span> Family intervention</figcaption></figure>
+        <figure class="assemble__shot" data-i="1"><img src="site-v1/images/board-2.webp" width="640" height="363" alt=""><figcaption><span class="mono">02</span> The sad burrito</figcaption></figure>
+        <figure class="assemble__shot" data-i="2"><img src="site-v1/images/board-3.webp" width="640" height="363" alt=""><figcaption><span class="mono">03</span> Gas station taco</figcaption></figure>
+        <figure class="assemble__shot" data-i="3"><img src="site-v1/images/board-4.webp" width="640" height="363" alt=""><figcaption><span class="mono">04</span> Desk salad</figcaption></figure>
+        <figure class="assemble__shot" data-i="4"><img src="site-v1/images/board-5.webp" width="640" height="363" alt=""><figcaption><span class="mono">05</span> Still not it</figcaption></figure>
+        <figure class="assemble__shot" data-i="5"><img src="site-v1/images/board-6.webp" width="640" height="363" alt=""><figcaption><span class="mono">06</span> Abuela walks in</figcaption></figure>
+        <figure class="assemble__shot" data-i="6"><img src="site-v1/images/board-7.webp" width="640" height="363" alt=""><figcaption><span class="mono">07</span> The tacos</figcaption></figure>
+        <figure class="assemble__shot" data-i="7"><img src="site-v1/images/board-8.webp" width="640" height="363" alt=""><figcaption><span class="mono">08</span> The truck</figcaption></figure>
+        <figure class="assemble__shot" data-i="8"><img src="site-v1/images/board-9.webp" width="640" height="363" alt=""><figcaption><span class="mono">09</span> Come hungry</figcaption></figure>
+      </div>
+      <div class="assemble__arrive">
+        <p class="assemble__kicker">A 32-second taco truck ad</p>
+        <h2>Put the story on the board.</h2>
+      </div>
+      <a class="assemble__jump" href="#how">See how it works ↓</a>
     </div>
   </section>
 
@@ -301,6 +334,18 @@
   </section>
 
 </main>
+
+
+<div class="demo" id="demoModal" hidden>
+  <div class="demo__back" data-demo-close></div>
+  <div class="demo__box" role="dialog" aria-modal="true" aria-labelledby="demo-title">
+    <div class="demo__bar">
+      <p id="demo-title">Reelhaus demo</p>
+      <button class="demo__x" type="button" aria-label="Close" data-demo-close>&times;</button>
+    </div>
+    <video id="demoVideo" controls playsinline preload="metadata"></video>
+  </div>
+</div>
 
 <script src="site-v1/scrollcraft.js"></script>
 <script src="site.js"></script>

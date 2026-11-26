@@ -209,3 +209,122 @@ var MEDIA = {
   }
   setTimeout(function(){ del = true; tick(); }, 7000);
 })();
+
+/* ---- Watch demo lightbox: plays the existing hero sizzle (~21s; no 60s cut exists) ---- */
+(function(){
+  var openBtn = document.getElementById('watchDemo');
+  var modal = document.getElementById('demoModal');
+  var video = document.getElementById('demoVideo');
+  if (!openBtn || !modal || !video) return;
+  var last = null;
+  function src(){
+    var mobile = matchMedia('(max-width: 860px)').matches;
+    var m = (typeof MEDIA !== 'undefined') && MEDIA.heroReel;
+    if (!m) return mobile ? 'site-v1/assets/sizzle-m.mp4' : 'site-v1/assets/sizzle.mp4';
+    return mobile ? (m.mobile || m.desktop) : m.desktop;
+  }
+  function close(){
+    video.pause();
+    modal.hidden = true;
+    document.body.classList.remove('demo-on');
+    document.removeEventListener('keydown', onKey);
+    if (last && last.focus) last.focus({preventScroll:true});
+  }
+  function onKey(e){
+    if (e.key === 'Escape') { close(); return; }
+    if (e.key === 'Tab') {
+      var f = modal.querySelectorAll('button,video');
+      var first = f[0], end = f[f.length-1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); end.focus(); }
+      else if (!e.shiftKey && document.activeElement === end) { e.preventDefault(); first.focus(); }
+    }
+  }
+  function open(){
+    last = document.activeElement;
+    if (!video.src || video.getAttribute('data-src') !== src()) {
+      video.src = src();
+      video.setAttribute('data-src', src());
+    }
+    modal.hidden = false;
+    document.body.classList.add('demo-on');
+    document.addEventListener('keydown', onKey);
+    var p = video.play();
+    if (p && p.catch) p.catch(function(){});
+    modal.querySelector('.demo__x').focus({preventScroll:true});
+  }
+  openBtn.addEventListener('click', open);
+  modal.addEventListener('click', function(e){ if (e.target.closest('[data-demo-close]')) close(); });
+})();
+
+/* ---- Assemble board: taco-truck stills slide from the sides into one row ---- */
+(function(){
+  var seq = document.querySelector('.assemble');
+  if (!seq) return;
+  var stage = seq.querySelector('.assemble__stage');
+  var cards = [].slice.call(seq.querySelectorAll('.assemble__shot'));
+  var arrival = seq.querySelector('.assemble__arrive');
+  var jump = seq.querySelector('.assemble__jump');
+  if (!stage || cards.length !== 9) return;
+  var layout = [
+    [-0.02, 0.16, 0.20, -8],
+    [ 0.03, 0.36, 0.16,  5],
+    [-0.01, 0.54, 0.18, -5],
+    [ 0.04, 0.72, 0.16,  6],
+    [ 0.81, 0.16, 0.19,  7],
+    [ 0.83, 0.34, 0.16, -5],
+    [ 0.80, 0.50, 0.18,  5],
+    [ 0.84, 0.66, 0.15, -4],
+    [ 0.81, 0.80, 0.17,  6]
+  ];
+  var raf = 0;
+  var clamp = function(x){ return Math.max(0, Math.min(1, x)); };
+  var mix = function(a,b,t){ return a + (b - a) * t; };
+  function still(){
+    return matchMedia('(max-width:860px), (prefers-reduced-motion: reduce)').matches;
+  }
+  function compose(){
+    raf = 0;
+    if (still()) {
+      cards.forEach(function(c){ c.removeAttribute('style'); });
+      if (arrival) arrival.removeAttribute('style');
+      if (jump) { jump.style.opacity = ''; jump.classList.add('is-on'); }
+      return;
+    }
+    var box = seq.getBoundingClientRect();
+    var w = box.width;
+    var h = stage.offsetHeight;
+    var p = clamp(-box.top / Math.max(1, box.height - h));
+    var reveal = clamp((p - 0.28) * 2.6);
+    if (arrival) arrival.style.opacity = String(reveal);
+    if (jump) {
+      var on = p >= 0.72;
+      jump.classList.toggle('is-on', on);
+      jump.style.opacity = on ? '1' : '0';
+    }
+    var endW = w * (w >= 1600 ? 0.090 : 0.092);
+    var row = w * 0.94;
+    var gap = (row - endW * 9) / 8;
+    var origin = (w - row) / 2;
+    var endY = h * 0.52;
+    var endH = endW * 9 / 16;
+    cards.forEach(function(el, i){
+      var s = layout[i];
+      var t = clamp((p - i * 0.01) / (0.62 - i * 0.01));
+      t = t * t * (3 - 2 * t);
+      var ww = mix(w * s[2], endW, t);
+      var hh = mix(w * s[2] * 0.56, endH, t);
+      var x = mix(s[0] * w, origin + i * (endW + gap), t);
+      var y = mix(s[1] * h, endY, t);
+      el.style.width = ww + 'px';
+      el.style.height = hh + 'px';
+      el.style.transform = 'translate(' + x + 'px,' + y + 'px) rotate(' + mix(s[3], 0, t) + 'deg)';
+    });
+  }
+  function queue(){ if (!raf) raf = requestAnimationFrame(function(){ raf=0; compose(); }); }
+  addEventListener('scroll', queue, {passive:true});
+  addEventListener('resize', queue);
+  if (matchMedia('(prefers-reduced-motion: reduce)').addEventListener) {
+    matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', queue);
+  }
+  (function tick(){ compose(); requestAnimationFrame(tick); })();
+})();
