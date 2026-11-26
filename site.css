@@ -414,3 +414,8 @@ html{overflow-x:clip}
 .hero__h1 .hl{background:none;-webkit-text-fill-color:currentColor}
 .hero__h1 .hl:nth-child(1),.hero__h1 .hl:nth-child(3){color:#FFFFFF}
 .hero__h1 .hl:nth-child(2){color:#BDB3D6}
+/* Nov 26 11:15: fluid headline at every width (TJ) */
+.hero__h1{font-size:clamp(1.45rem,4.4vw,3.1rem)!important;line-height:1.08}
+.hero__h1 .hl{white-space:nowrap}
+@media (max-width:560px){.hero__h1{font-size:clamp(1.5rem,7.4vw,2.1rem)!important}.hero__h1 .hl{white-space:normal;text-wrap:balance}}
+.hero__sub{font-size:clamp(.98rem,.85rem + .45vw,1.3rem)}
