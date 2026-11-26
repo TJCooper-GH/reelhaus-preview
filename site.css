@@ -638,3 +638,40 @@ body.demo-on{overflow:hidden}
 .act{font-size:clamp(13px,calc(13px + .14vw),15px)}
 .assemble{height:240svh}
 .sheet{overflow:clip}
+
+/* Nov 26: refined hero actions — white/purple Get started, dark-glass Watch demo (TJ) */
+.hero__acts{gap:clamp(8px,.85vw,12px)}
+.act{height:clamp(42px,3.2vw,46px);min-width:clamp(140px,10.6vw,156px);padding:0 18px 0 8px;border-radius:12px;font:600 clamp(13px,calc(13px + .14vw),15px)/1 var(--sc-font-text);letter-spacing:-.01em;transition:background .3s,background-color .3s,box-shadow .3s,transform .3s,color .3s,border-color .3s}
+.act--go{background:linear-gradient(180deg,#FFFFFF 0%,#F4F0FF 100%);color:#5B3FD0;box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 0 0 1px rgba(116,81,232,.14),0 10px 30px -10px rgba(116,81,232,.55)}
+.act--go:hover{background:linear-gradient(180deg,#FFFFFF 0%,#EDE6FF 100%);color:#4F35C4;transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.8) inset,0 0 0 1px rgba(116,81,232,.22),0 14px 36px -10px rgba(116,81,232,.7)}
+.act--go:focus-visible{outline:2px solid #7451E8;outline-offset:3px;transform:translateY(-1px)}
+.act__tile{width:clamp(24px,1.95vw,28px);height:clamp(24px,1.95vw,28px);border-radius:8px;background:#7451E8;color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.25) inset,0 4px 10px -3px rgba(91,63,208,.55);transition:transform .3s}
+.act__tile svg{width:11px;height:11px;display:block;margin-left:1px;transition:transform .3s}
+.act--go:hover .act__tile svg,.act--go:focus-visible .act__tile svg{transform:translateX(1.5px)}
+.act--watch{background:rgba(255,255,255,.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#EEE;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);padding:0 16px 0 12px}
+.act--watch:hover,.act--watch:focus-visible{background:rgba(165,139,255,.12);color:#fff;box-shadow:inset 0 0 0 1px rgba(197,177,255,.32)}
+.act--watch:focus-visible{outline:2px solid #7451E8;outline-offset:3px}
+.act__play{width:22px;height:22px;color:currentColor}
+.act__play svg{width:22px;height:22px}
+@media (max-width:400px){
+  .hero__acts{gap:8px;width:100%}
+  .act{flex:1 1 auto;min-width:0;min-height:44px;height:44px;padding:0 12px 0 7px;justify-content:center}
+  .act--watch{padding:0 12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .act,.act__tile,.act__tile svg{transition:none}
+  .act--go:hover,.act--go:focus-visible{transform:none}
+  .act--go:hover .act__tile svg,.act--go:focus-visible .act__tile svg{transform:none}
+}
+
+/* Nov 26: hero side stills are the 9 taco-truck board frames (TJ) */
+.hero__float .fl{aspect-ratio:16/9}
+.fl1{left:1.8%;top:11%;width:clamp(88px,13.5vw,230px);rotate:-6deg}
+.fl2{left:4.2%;top:30%;width:clamp(76px,11.5vw,200px);rotate:5deg}
+.fl3{left:1.6%;top:49%;width:clamp(84px,12.5vw,216px);rotate:-4deg}
+.fl4{left:3.8%;top:auto;bottom:-6%;width:clamp(92px,14vw,236px);rotate:3deg}
+.fl5{right:1.8%;top:10%;width:clamp(88px,13.5vw,230px);rotate:6deg}
+.fl6{right:4.8%;top:28%;width:clamp(76px,11.5vw,200px);rotate:-5deg}
+.fl7{right:1.6%;top:46%;width:clamp(84px,12.5vw,216px);rotate:4deg}
+.fl8{right:5.2%;top:64%;width:clamp(72px,10.8vw,188px);rotate:-3deg}
+.fl9{right:2%;top:auto;bottom:-7%;width:clamp(90px,13.8vw,228px);rotate:5deg}
