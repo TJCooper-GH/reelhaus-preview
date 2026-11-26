@@ -93,3 +93,7 @@
 .cineSeq .heroCopy h1{font-size:clamp(40px,4.1vw,64px);line-height:1.02}
 @media(max-width:700px){.cineSeq .heroCopy h1{font-size:clamp(30px,8.4vw,44px)}}
 .cineSeq .heroCopy h1 .hl2{display:block}
+
+/* Jobs to be done (Nov 26) */
+.jobs small{color:#BDB3D6}.jobs__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}.job{border:1px solid #ffffff1f;background:#121620;border-radius:16px;padding:22px}.job:hover{border-color:#A58BFF80}.job__n{font:12px ui-monospace,monospace;color:#A58BFF}.job h3{margin:10px 0 8px;font-size:20px;letter-spacing:-.02em}.job p{margin:0;color:#c2c7ce;line-height:1.5}
+@media(max-width:900px){.jobs__grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.jobs__grid{grid-template-columns:1fr}}
