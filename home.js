@@ -25,15 +25,15 @@ function billing(y){document.querySelectorAll('#pricing [data-mo]').forEach(el=>
 ;
 
 const seq=document.querySelector('.cineSeq'), fr=seq.querySelector('.frames'), copy=seq.querySelector('.heroCopy'), arrival=seq.querySelector('.arrive'), jump=seq.querySelector('.boardLink');
-const cards=[['motor','Motorcade'],['presenter','Presenter'],['shoe','Commercial'],['space','Space opera'],['lead','Short drama'],['elena','Character study']].map(([k,title])=>{let el=document.createElement('figure');el.className='frame';let im=new Image();im.src=A[k];im.alt=title;let cap=document.createElement('figcaption');cap.textContent=title;el.append(im,cap);fr.append(el);return el});
+const cards=[['motor','Action scene'],['presenter','Presenter video'],['shoe','Product commercial'],['space','Sci-fi scene'],['lead','Short drama scene'],['elena','Character close-up']].map(([k,title])=>{let el=document.createElement('figure');el.className='frame';let im=new Image();im.src=A[k];im.alt=title;let cap=document.createElement('figcaption');cap.textContent=title;el.append(im,cap);fr.append(el);return el});
 const layout=[[-.065,.03,.28,-10],[.008,.32,.195,5],[-.045,.61,.265,-5],[.785,.035,.27,9],[.811,.33,.225,-5],[.775,.64,.29,6]];
 let raf=0;const clamp=x=>Math.max(0,Math.min(1,x)),mix=(a,b,t)=>a+(b-a)*t;
 function compose(){raf=0;let still=matchMedia('(max-width:700px), (prefers-reduced-motion:reduce)').matches;
-if(still){cards.forEach(c=>c.removeAttribute('style'));copy.removeAttribute('style');copy.inert=false;arrival.removeAttribute('style');jump.hidden=true;return}
+if(still){cards.forEach(c=>c.removeAttribute('style'));copy.removeAttribute('style');copy.inert=false;arrival.removeAttribute('style');jump.hidden=false;return}
 let box=seq.getBoundingClientRect(),w=box.width,h=seq.firstElementChild.offsetHeight,p=clamp(-box.top/Math.max(1,box.height-h)), fade=clamp(1-p*3.2), reveal=clamp((p-.46)*2.4);
 copy.style.opacity=fade;copy.style.transform='translate(-50%,calc(-50% - '+p*110+'px))';copy.inert=fade<.1;arrival.style.opacity=reveal;jump.hidden=p<.85;
 cards.forEach((el,i)=>{const [sx,sy,sw,angle]=layout[i];let t=clamp((p-i*.017)/(.86-i*.017));t=t*t*(3-2*t);const ww=mix(w*sw,w*.146,t);el.style.width=ww+'px';el.style.height=ww*.62+'px';el.style.transform='translate('+mix(sx*w,(.034+i*.158)*w,t)+'px,'+mix(sy*h,.46*h,t)+'px) rotate('+mix(angle,0,t)+'deg)';});
-let box2=$('explainer').getBoundingClientRect();document.querySelector('.speaker').style.setProperty('--reveal',(clamp(box2.top/innerHeight)*8)+'%');
+let sp=document.querySelector('.speaker');if(sp){let box2=(document.getElementById('paying')||sp).getBoundingClientRect();sp.style.setProperty('--reveal',(clamp(box2.top/innerHeight)*8)+'%');}
 }function queue(){if(!raf)raf=requestAnimationFrame(compose)}addEventListener('scroll',queue,{passive:true});addEventListener('resize',queue);matchMedia('(prefers-reduced-motion:reduce)').addEventListener('change',queue);compose();
 
 ;(function(){var el=document.querySelector('[data-typer]');if(!el||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
