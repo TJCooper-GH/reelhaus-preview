@@ -405,3 +405,6 @@ html{overflow-x:clip}
 /* Nov 26 11:10: thin headline, larger subhead on desktop (TJ) */
 .hero__h1{font-weight:200;letter-spacing:-.02em}
 @media (min-width:861px){.hero__sub{font-size:1.3rem;max-width:44ch;line-height:1.45}}
+/* Nov 26 11:11: medium-light weight + soft gradient glow (TJ) */
+.hero__h1{font-weight:350}
+.hero__h1 .hl{background:linear-gradient(180deg,#FFFFFF 0%,#F1ECFF 55%,#C9B8FF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 0 18px rgba(165,139,255,.28)) drop-shadow(0 2px 2px rgba(0,0,0,.35))}
