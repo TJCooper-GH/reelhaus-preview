@@ -97,3 +97,4 @@
 /* Jobs to be done (Nov 26) */
 .jobs small{color:#BDB3D6}.jobs__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}.job{border:1px solid #ffffff1f;background:#121620;border-radius:16px;padding:22px}.job:hover{border-color:#A58BFF80}.job__n{font:12px ui-monospace,monospace;color:#A58BFF}.job h3{margin:10px 0 8px;font-size:20px;letter-spacing:-.02em}.job p{margin:0;color:#c2c7ce;line-height:1.5}
 @media(max-width:900px){.jobs__grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.jobs__grid{grid-template-columns:1fr}}
+.job h3{margin:0 0 14px}.job__vis{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(140deg,#7451E833,#A58BFF14);border:1px solid #A58BFF55;color:#BDB3D6;margin-bottom:14px}.job__vis svg{width:26px;height:26px}
