@@ -410,3 +410,7 @@ html{overflow-x:clip}
 .hero__h1 .hl{background:linear-gradient(180deg,#FFFFFF 0%,#F1ECFF 55%,#C9B8FF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;filter:drop-shadow(0 0 18px rgba(165,139,255,.28)) drop-shadow(0 2px 2px rgba(0,0,0,.35))}
 /* Nov 26 11:12: weight 800 (TJ) */
 .hero__h1{font-weight:800;letter-spacing:-.035em}
+/* Nov 26 11:14: per-line colors (TJ) */
+.hero__h1 .hl{background:none;-webkit-text-fill-color:currentColor}
+.hero__h1 .hl:nth-child(1),.hero__h1 .hl:nth-child(3){color:#FFFFFF}
+.hero__h1 .hl:nth-child(2){color:#BDB3D6}
