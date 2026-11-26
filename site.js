@@ -256,7 +256,7 @@ var MEDIA = {
   modal.addEventListener('click', function(e){ if (e.target.closest('[data-demo-close]')) close(); });
 })();
 
-/* ---- Assemble board: taco-truck stills slide from the sides into one row ---- */
+/* ---- Assemble board: Iron Vow stills slide from the sides into one row ---- */
 (function(){
   var seq = document.querySelector('.assemble');
   if (!seq) return;

@@ -71,7 +71,6 @@ body{font-size:14.96px}
   .hero__film{clip-path:inset(calc((1 - var(--g)) * 55%) calc((1 - var(--g)) * 5vw) calc((1 - var(--g)) * 3%) calc((1 - var(--g)) * 5vw) round calc((1 - var(--g)) * 20px))}
   .hero__filmchip{left:calc((1 - var(--g)) * 5vw + 12px);bottom:calc((1 - var(--g)) * 3% + 12px);font-size:11.44px}
   .hero__play{right:calc((1 - var(--g)) * 5vw + 12px);bottom:calc((1 - var(--g)) * 3% + 10px)}
-  .hero__float{display:none}
   .hero__copy{top:calc(58px + 4.5vh)}
   .hero__h1{font-size:clamp(2.068rem,8.448vw,2.816rem)}
   .hero__ctas .btn--lg{min-height:50px;padding:0 18px;font-size:14.08px}
@@ -664,7 +663,7 @@ body.demo-on{overflow:hidden}
   .act--go:hover .act__tile svg,.act--go:focus-visible .act__tile svg{transform:none}
 }
 
-/* Nov 26: hero side stills are the 9 taco-truck board frames (TJ) */
+/* Nov 26: hero side stills are the 9 Iron Vow board frames (TJ) */
 .hero__float .fl{aspect-ratio:16/9}
 .fl1{left:1.8%;top:11%;width:clamp(88px,13.5vw,230px);rotate:-6deg}
 .fl2{left:4.2%;top:30%;width:clamp(76px,11.5vw,200px);rotate:5deg}
@@ -675,3 +674,40 @@ body.demo-on{overflow:hidden}
 .fl7{right:1.6%;top:46%;width:clamp(84px,12.5vw,216px);rotate:4deg}
 .fl8{right:5.2%;top:64%;width:clamp(72px,10.8vw,188px);rotate:-3deg}
 .fl9{right:2%;top:auto;bottom:-7%;width:clamp(90px,13.8vw,228px);rotate:5deg}
+
+/* Nov 26: keep hero stills visible on small screens — smaller, at the edges,
+   faded toward the copy so the headline and buttons stay readable. */
+@media (max-width:860px){
+  .hero__float{
+    display:block;
+    pointer-events:none;
+    overflow:clip;
+    -webkit-mask-image:linear-gradient(90deg,#000 0 12%,transparent 34% 66%,#000 88% 100%);
+    mask-image:linear-gradient(90deg,#000 0 12%,transparent 34% 66%,#000 88% 100%);
+  }
+  .hero__float .fl{
+    opacity:.62;
+    filter:saturate(.9) brightness(.72);
+  }
+  .hero__scrim{
+    width:min(70rem,100vw);
+    height:min(640px,78vh);
+    background:radial-gradient(closest-side,color-mix(in oklab,var(--sc-canvas) 92%,transparent) 60%,transparent 100%);
+  }
+}
+@media (max-width:560px){
+  .hero__float{
+    -webkit-mask-image:linear-gradient(90deg,#000 0 10%,transparent 28% 72%,#000 90% 100%);
+    mask-image:linear-gradient(90deg,#000 0 10%,transparent 28% 72%,#000 90% 100%);
+  }
+  .hero__float .fl{opacity:.55}
+  .fl1{left:-2%;top:11%;width:clamp(58px,18vw,76px);rotate:-8deg}
+  .fl2{left:-4%;top:28%;width:clamp(52px,16vw,70px);rotate:6deg}
+  .fl3{left:-6%;top:45%;width:clamp(56px,17vw,74px);rotate:-5deg}
+  .fl4{left:-3%;top:auto;bottom:16%;width:clamp(60px,19vw,78px);rotate:4deg}
+  .fl5{right:-2%;top:10%;width:clamp(58px,18vw,76px);rotate:7deg}
+  .fl6{right:-4%;top:26%;width:clamp(52px,16vw,70px);rotate:-6deg}
+  .fl7{right:-5%;top:42%;width:clamp(56px,17vw,74px);rotate:5deg}
+  .fl8{right:-7%;top:58%;width:clamp(50px,15vw,68px);rotate:-4deg}
+  .fl9{right:-3%;top:auto;bottom:14%;width:clamp(60px,19vw,78px);rotate:6deg}
+}
