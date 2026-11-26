@@ -712,10 +712,9 @@ body.demo-on{overflow:hidden}
   .fl9{right:-3%;top:auto;bottom:14%;width:clamp(60px,19vw,78px);rotate:6deg}
 }
 
-/* Nov 26: two-line hero lockup — 'A full film crew. / Zero markup.' */
-.hero__h1 .hl:nth-child(1),
-.hero__h1 .hl:nth-child(2),
-.hero__h1 .hl:nth-child(3){color:#FFFFFF}
+/* Nov 26: two-line hero lockup — 'A full film crew.' white, 'Zero markup.' #BDB3D6 */
+.hero__h1 .hl:nth-child(1){color:#FFFFFF}
+.hero__h1 .hl:nth-child(2){color:#BDB3D6}
 @media (max-width:560px){
   .hero__h1{font-size:clamp(1.7rem,8.2vw,2.35rem)!important}
   .hero__h1 .hl{white-space:nowrap;text-wrap:unset}
