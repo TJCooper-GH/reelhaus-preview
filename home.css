@@ -92,3 +92,4 @@
 /* Smaller hero headline (Nov 26, TJ) */
 .cineSeq .heroCopy h1{font-size:clamp(40px,4.1vw,64px);line-height:1.02}
 @media(max-width:700px){.cineSeq .heroCopy h1{font-size:clamp(30px,8.4vw,44px)}}
+.cineSeq .heroCopy h1 .hl2{display:block}
