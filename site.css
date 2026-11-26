@@ -719,3 +719,95 @@ body.demo-on{overflow:hidden}
   .hero__h1{font-size:clamp(1.7rem,8.2vw,2.35rem)!important}
   .hero__h1 .hl{white-space:nowrap;text-wrap:unset}
 }
+
+/* Nov 26: hero-to-board fold. No sizzle under the hero; stage fills one screen. */
+.hero{--g:0;--gt:0}
+.hero,.hero__stage{min-height:100svh;min-height:100dvh;position:relative}
+.hero__copy,.hero__scrim{opacity:1}
+.hero__float{z-index:1}
+.hero__copy{z-index:3}
+/* Without the film band, size the hero to the copy so the board follows immediately. */
+@media (max-width:860px){
+  .hero,.hero__stage{min-height:0;height:auto}
+  .hero__stage{padding-bottom:clamp(28px,6vw,48px)}
+  .hero__copy{position:relative;left:auto;top:auto;translate:none;width:min(62rem,92vw);margin:0 auto;padding:calc(clamp(52px,12vw,58px) + 3.5vh) 0 0}
+  .bf-on .hero__copy{top:auto;padding-top:calc(clamp(52px,12vw,58px) + clamp(32px,8vw,36px) + 3vh)}
+  .fl4{bottom:4%}
+  .fl9{bottom:3%}
+}
+
+
+/* Mobile board/step stills: horizontal snap slider, ~2 cards + a peek. */
+@media (max-width:860px){
+  .assemble__shots,
+  .sheet__grid{
+    display:flex !important;
+    grid-template-columns:none !important;
+    gap:12px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:16px;
+    padding-inline:2px 16px;
+    width:100%;
+    max-width:100%;
+    scrollbar-width:thin;
+  }
+  .assemble__shot,
+  .assemble__shot:last-child,
+  .sheet__grid > .frame,
+  .sheet__grid > .frame:last-child{
+    flex:0 0 calc((100% - 12px - 22px) / 2);
+    width:auto !important;
+    max-width:none;
+    height:auto !important;
+    grid-column:auto !important;
+    scroll-snap-align:start;
+    aspect-ratio:16/9;
+    position:relative;
+    inset:auto;
+    transform:none !important;
+  }
+  .assemble__shot img,
+  .sheet__grid > .frame img{width:100%;height:100%;object-fit:cover;display:block}
+}
+
+/* Reserved Harmon-style explainer slot (middle/lower page). Placeholder only. */
+.explainer{padding:clamp(3.5rem,8vw,7rem) 0}
+.explainer__inner{display:grid;justify-items:center;text-align:center;gap:clamp(10px,1.2vw,16px)}
+.explainer__kicker{margin:0;font:700 var(--t-xs)/1.3 var(--sc-font-text);letter-spacing:.14em;text-transform:uppercase;color:var(--em-text)}
+.explainer__inner .h2{margin:0;max-width:22ch}
+.explainer__inner .lead{margin:0 auto;max-width:42ch}
+.explainer__frame{
+  margin-top:clamp(12px,2vw,24px);
+  width:min(960px,100%);
+  aspect-ratio:16/9;
+  border-radius:clamp(14px,1.6vw,22px);
+  border:1px solid #A58BFF40;
+  background:
+    linear-gradient(180deg,#141221 0%,#0C0C14 100%);
+  box-shadow:0 24px 80px #0008,inset 0 1px 0 #ffffff10;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  gap:10px;
+  color:#E6E4EE;
+}
+.explainer__mark{
+  width:56px;height:56px;border-radius:50%;
+  background:#7451E8;color:#fff;
+  display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px #7451E8aa;
+}
+.explainer__mark::before{
+  content:"";
+  width:0;height:0;
+  border-style:solid;
+  border-width:8px 0 8px 14px;
+  border-color:transparent transparent transparent #fff;
+  margin-left:2px;
+}
+.explainer__label{font:700 1.05rem/1.2 var(--sc-font-display);letter-spacing:-.02em}
+.explainer__soon{font:600 var(--t-xs)/1 var(--sc-font-text);color:#BDB3D6;letter-spacing:.08em;text-transform:uppercase}

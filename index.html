@@ -9,7 +9,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='rg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23a99cff'/><stop offset='1' stop-color='%236a55f0'/></linearGradient></defs><rect width='64' height='64' rx='15' fill='%230d0e15'/><rect x='2' y='2' width='60' height='60' rx='13' fill='none' stroke='url(%23rg)' stroke-width='2.5'/><path d='M20 15h15.5c7.5 0 12.5 4.3 12.5 11 0 4.8-2.6 8.3-6.8 9.9L49 49h-9.6l-6.6-12.2H28.6V49H20V15zm8.6 7.3v7.5h6.3c2.6 0 4.2-1.4 4.2-3.8s-1.6-3.7-4.2-3.7h-6.3z' fill='url(%23rg)'/></svg>">
 <link rel="preload" href="site-v1/fonts/InterTight-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="site-v1/scrollcraft.css">
-<link rel="stylesheet" href="site.css?v=1126q">
+<link rel="stylesheet" href="site.css?v=1126r">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"></head>
 <body>
 
@@ -33,8 +33,8 @@
 
 <main id="main">
 
-  <!-- 1 HERO: pin. The sizzle plays; scrolling opens its frame to full bleed. -->
-  <section class="hero" data-sc-act="pin" data-sc-span="2.3" data-sc-drift="#07080C" aria-label="Reelhaus">
+  <!-- 1 HERO: flow. Side stills sit in the frame, then the page moves straight into the board. Sizzle file kept for Watch demo. -->
+  <section class="hero" data-sc-act="flow" data-sc-drift="#07080C" aria-label="Reelhaus">
     <div data-sc-stage class="hero__stage">
       <div class="hero__float" aria-hidden="true">
         <img class="fl fl1" data-sc-parallax="-0.18" src="site-v1/images/ironvow-1.webp" alt="A cloaked pilot walks to a dormant mech" width="1280" height="720">
@@ -47,12 +47,8 @@
         <img class="fl fl8" data-sc-parallax="-0.14" src="site-v1/images/ironvow-8.webp" alt="She screams and slams the lever" width="1280" height="720">
         <img class="fl fl9" data-sc-parallax="-0.28" src="site-v1/images/ironvow-9.webp" alt="Dawn, and the refugees are safe" width="1280" height="720">
       </div>
-      <div class="hero__film">
-        <video id="sizzle" data-media="heroReel" muted loop playsinline preload="metadata" aria-label="Sample reel"></video>
-        <button class="hero__play" type="button" aria-pressed="false" id="sizzleToggle">Pause</button>
-      </div>
-      <div class="hero__scrim" aria-hidden="true" data-sc-cue="0 0.30 0"></div>
-      <div class="hero__copy" data-sc-cue="0 0.30 0">
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__copy">
         <h1 class="hero__h1" style="font-weight:800 !important"><span class="hl">A full film crew.</span><span class="hl">Zero markup.</span></h1>
         <p class="hero__sub">Reelhaus helps you find the angle, write the script and plan every shot. You render on your own keys and only pay for what you use.</p>
         <div class="hero__acts">
@@ -158,16 +154,16 @@
   </section>
 
 
-  <!-- 5c EXPLAINER SLOT: scrub. Moved below How it works; placeholder film for a later Harmon-style explainer. -->
-  <section class="ready" data-sc-act="scrub" data-sc-span="2.6" data-sc-dwell="0.3" data-sc-drift="#07080C" aria-label="The problem">
-    <div data-sc-stage>
-      <img class="sc-stage__poster" data-media-poster="storyFilm" alt="">
-      <video data-sc-scrub data-media="storyFilm" muted playsinline></video>
-      <div class="sc-scrim ready__scrim" aria-hidden="true"></div>
-      <div class="ready__copy">
-        <p class="say" data-sc-cue="0 0.36 0">You pay for credits. Most clips come back unusable.</p>
-        <p class="say" data-sc-cue="0.30 0.64 0.06 0.06">The face changes from shot to shot.</p>
-        <p class="say" data-sc-cue="0.58 1 0.08 0.04">And you never know what one video will cost.</p>
+  <!-- 5c EXPLAINER SLOT: reserved for a later Harmon-style explainer. Video files kept on disk; not placed here. -->
+  <section class="explainer sc-section" id="explainer" data-sc-act="flow" data-sc-drift="#07080C" aria-label="Explainer video">
+    <div class="sc-wrap explainer__inner">
+      <p class="explainer__kicker">How Reelhaus works</p>
+      <h2 class="h2">A short walkthrough goes here.</h2>
+      <p class="lead">This slot is reserved for a short explainer of how Reelhaus helps you take a film from the idea to the final cut.</p>
+      <div class="explainer__frame" role="img" aria-label="Placeholder for the explainer video">
+        <span class="explainer__mark" aria-hidden="true"></span>
+        <span class="explainer__label">Explainer video</span>
+        <span class="explainer__soon">Placeholder</span>
       </div>
     </div>
   </section>
