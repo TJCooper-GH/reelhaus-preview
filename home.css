@@ -76,3 +76,15 @@
 .explain-soon{font:12px/1.55 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#BDB3D6}
 @media(max-width:700px){.explain-frame{border-radius:12px}.explain-label{font-size:18px}.arrive p{font-size:15px}}
 @media(max-width:700px){.framehint{display:block;text-align:center;font-size:13px;color:#aeb4bd;margin:6px 0 2px}}
+
+/* Explainer scroll treatment (Nov 26): desktop pins the explainer over the hero; stills slide up and fade as the card grows into center. */
+.explain-frame{transform-origin:50% 50%}
+@media(min-width:701px) and (prefers-reduced-motion:no-preference){
+.cineSeq{height:285svh}
+#explainer{position:relative;z-index:5;margin:-100svh auto 0;height:165svh;pointer-events:none}
+#explainer .explain-stage{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;pointer-events:none}
+#explainer .explain-copy,#explainer .explain-frame{pointer-events:auto}
+#explainer .explain-copy{margin-bottom:6px}
+#explainer .explain-frame{width:min(100%,calc((100svh - 300px)*1.7778));min-width:min(100%,520px);margin:12px auto 0;will-change:transform,opacity}
+#explainer .explain-copy{will-change:transform,opacity}
+}
