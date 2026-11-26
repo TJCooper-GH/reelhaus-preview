@@ -402,3 +402,6 @@ html{overflow-x:clip}
 /* Nov 26 11:09: smaller, lighter headline (TJ) */
 .hero__h1{font-size:clamp(1.6rem,0.9rem + 2vw,2.7rem);font-weight:500;letter-spacing:-.025em;line-height:1.1}
 @media (max-width:640px){.hero__h1{font-size:clamp(1.4rem,5.6vw,1.75rem)}}
+/* Nov 26 11:10: thin headline, larger subhead on desktop (TJ) */
+.hero__h1{font-weight:200;letter-spacing:-.02em}
+@media (min-width:861px){.hero__sub{font-size:1.3rem;max-width:44ch;line-height:1.45}}
